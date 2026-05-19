@@ -2,6 +2,8 @@
 
 ![Martel Code cover image showing Slime and Tokyo Night Light editor specimens](assets/martel-code-cover.png)
 
+[Watch the Remotion reveal trailer](assets/martel-code-trailer.mp4)
+
 A reproducible, programmatic derivation of the open-source [Martel](https://github.com/typeoff/martel) font for code/editor use.
 
 ## Download
@@ -120,6 +122,18 @@ Important knobs:
 `space_width_em` is treated as a minimum, so already-wider space glyphs are not accidentally narrowed.
 
 The punctuation allowlist is deliberately small so we do not accidentally “normalize all punctuation.” Add glyphs only when you want that behavior.
+
+## Remotion trailer
+
+A small Remotion trailer lives in `trailer/`.
+
+```sh
+cd trailer
+npm install
+npm run render
+```
+
+The rendered MP4 is committed at `assets/martel-code-trailer.mp4`.
 
 ## Cover image
 
