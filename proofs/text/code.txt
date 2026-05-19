@@ -1,0 +1,10 @@
+Martel Code spacing proof
+
+letters: nnnn oooo HHHH IIl1 0000 O0O0
+tracking: The quick brown fox jumps over the lazy dog.
+spaces: a b  c   d    e     f
+main punctuation: a.b,c:d;e . , : ; .... ,,,, :::: ;;;;
+not-normalized punctuation: a+b = c-d / e*f -> x => y != z
+brackets: foo(bar); list[index]; object.{field};
+quotes: "string" 'char' `template`
+code: if (foo.bar === baz_qux) { return value + 10; }

@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+build/
+sources/upstream/*.ttf
+sources/upstream/OFL.txt
+sources/upstream/METADATA.pb
+sources/upstream/upstream_info.md
+sources/upstream/UPSTREAM.lock.json

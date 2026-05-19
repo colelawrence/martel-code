@@ -1,0 +1,28 @@
+{
+  "slime": {
+    "background": "#1e2324",
+    "foreground": "#e0e0e0",
+    "line": "#9ba2a04d",
+    "plain": "#e0e0e0",
+    "keyword": "#9FB3C2",
+    "number": "#B081B9",
+    "string": "#8CAEC1",
+    "function": "#e0ba7d",
+    "comment": "#6e7573",
+    "operator": "#b4b4b4",
+    "punctuation": "#CCD2BE"
+  },
+  "tokyoLight": {
+    "background": "#e6e7ed",
+    "foreground": "#343b59",
+    "line": "#9da0ab",
+    "plain": "#343b59",
+    "keyword": "#65359d",
+    "number": "#965027",
+    "string": "#385f0d",
+    "function": "#2959aa",
+    "comment": "#888b94",
+    "operator": "#006C86",
+    "punctuation": "#006C86"
+  }
+}

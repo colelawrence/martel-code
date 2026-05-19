@@ -1,0 +1,43 @@
+# Classic Latin pairs
+AV
+VA
+To
+Ta
+Te
+Ty
+Wa
+We
+Yo
+Ya
+LT
+FA
+PA
+
+# Code-ish / punctuation adjacency
+n.
+n,
+n:
+n;
+.n
+,n
+:n
+;n
+A.
+A,
+f.
+f,
+= =
+->
+=>
+!=
+==
+//
+::
+;;
+()
+[]
+{}
+"A
+A"
+'A
+A'

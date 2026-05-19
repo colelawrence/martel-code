@@ -1,0 +1,40 @@
+{
+  "base_config": "config/martel-code.json",
+  "style": "Regular",
+  "proof_text": "proofs/text/code.txt",
+  "contact_text": "proofs/text/calibration-contact.txt",
+  "kerning_pairs": "proofs/text/kerning-pairs.txt",
+  "render": {
+    "size": 32,
+    "width": 1500,
+    "line_height": 1.3,
+    "margin": 36
+  },
+  "contact_render": {
+    "size": 64,
+    "width": 2200,
+    "line_height": 1.25,
+    "margin": 48
+  },
+  "contact_sheet": {
+    "columns": 1,
+    "thumb_width": 2200
+  },
+  "blur": {
+    "radii": [1.5, 3, 6]
+  },
+  "reference_candidate": {
+    "tracking_em": 0.05,
+    "space_width_em": 0.60,
+    "punctuation_width_em": 0.42
+  },
+  "thresholds": {
+    "kerning_abs_z_warn": 1.5,
+    "kerning_abs_z_fail": 2.0
+  },
+  "matrix": {
+    "tracking_em": [0.04, 0.05, 0.06],
+    "space_width_em": [0.56, 0.60, 0.64],
+    "punctuation_width_em": [0.38, 0.42, 0.46]
+  }
+}

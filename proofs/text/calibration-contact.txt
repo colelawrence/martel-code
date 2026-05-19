@@ -1,0 +1,5 @@
+Martel Code 0O 0000 O0O0  l1I|Il
+The quick brown fox jumps over the lazy dog.
+foo.bar, baz:qux; value = 1000;
+tabular: 1.00 12.0 123. 9999 0000
+if (foo.bar === baz_qux) { return value + 10; }

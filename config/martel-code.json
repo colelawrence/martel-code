@@ -1,0 +1,37 @@
+{
+  "family_name": "Martel Code",
+  "version": "0.1.0",
+  "upstream": {
+    "source": "google/fonts/ofl/martel",
+    "ref": "de88e79a24337aa0209f3abcc044d2500ca07021",
+    "base_url": "https://raw.githubusercontent.com/google/fonts/{ref}/ofl/martel",
+    "fonts": [
+      { "file": "Martel-Regular.ttf", "style": "Regular", "weight": 400 },
+      { "file": "Martel-DemiBold.ttf", "style": "DemiBold", "weight": 600 },
+      { "file": "Martel-Bold.ttf", "style": "Bold", "weight": 700 }
+    ],
+    "docs": ["OFL.txt", "METADATA.pb", "upstream_info.md"]
+  },
+  "spacing": {
+    "tracking_em": 0.05,
+    "tracking_glyph_sets": ["latin_letters"],
+    "space_width_em": 0.60,
+    "space_glyphs": ["space", "uni00A0", "nonbreakingspace", "uni2007", "uni202F"]
+  },
+  "punctuation": {
+    "normalized_width_em": 0.42,
+    "center_ink": true,
+    "glyphs": ["period", "comma", "colon", "semicolon"]
+  },
+  "zero": {
+    "dot": true,
+    "dot_diameter_em": 0.12
+  },
+  "numerals": {
+    "tabular": true,
+    "width_em": 0.62,
+    "width_source": "0",
+    "chars": "0123456789",
+    "align_period": true
+  }
+}
