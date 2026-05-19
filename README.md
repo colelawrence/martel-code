@@ -4,6 +4,17 @@
 
 A reproducible, programmatic derivation of the open-source [Martel](https://github.com/typeoff/martel) font for code/editor use.
 
+## Download
+
+Download the latest packaged fonts from the [GitHub Releases page](https://github.com/colelawrence/martel-code/releases/latest).
+
+Direct downloads for v0.2.0:
+
+- [All font formats](https://github.com/colelawrence/martel-code/releases/download/v0.2.0/martel-code-fonts.zip)
+- [WOFF2 web fonts](https://github.com/colelawrence/martel-code/releases/download/v0.2.0/martel-code-woff2.zip)
+- [OTF fonts](https://github.com/colelawrence/martel-code/releases/download/v0.2.0/martel-code-otf.zip)
+- [TTF fonts](https://github.com/colelawrence/martel-code/releases/download/v0.2.0/martel-code-ttf.zip)
+
 Current transform goals:
 
 - rename the family to **Martel Code**;
@@ -112,7 +123,7 @@ The punctuation allowlist is deliberately small so we do not accidentally “nor
 
 ## Cover image
 
-`make cover` renders `assets/martel-code-cover.png` from the committed local palette snapshot at `config/cover-palettes.json` and the committed Regular font at `fonts/ttf/MartelCode-Regular.ttf`.
+`make cover` renders `assets/martel-code-cover.png` from the committed local palette snapshot at `config/cover-palettes.json`, the committed Regular font at `fonts/ttf/MartelCode-Regular.ttf`, and the committed Italic font for comment styling.
 
 The cover generator is self-contained by default. It also has explicit `--slime-theme` and `--tokyo-light-theme` CLI overrides for maintainers who want to refresh the local palette snapshot from external VS Code theme files, but the published repo does not depend on those files.
 

@@ -129,6 +129,7 @@ def draw_code_sample(
     xy: tuple[int, int],
     palette: dict[str, tuple[int, int, int]],
     code_font: ImageFont.FreeTypeFont,
+    comment_font: ImageFont.FreeTypeFont,
 ) -> None:
     x, y = xy
     gutter_x = x
@@ -139,13 +140,15 @@ def draw_code_sample(
         draw.text((gutter_x, yy), str(line_no).rjust(2), font=code_font, fill=palette["line"])
         xx = code_x
         for kind, text in segments:
-            draw.text((xx, yy), text, font=code_font, fill=palette.get(kind, palette["plain"]))
-            xx += round(draw.textlength(text, font=code_font))
+            segment_font = comment_font if kind == "comment" else code_font
+            draw.text((xx, yy), text, font=segment_font, fill=palette.get(kind, palette["plain"]))
+            xx += round(draw.textlength(text, font=segment_font))
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--font", default="build/fonts/MartelCode-Regular.ttf")
+    parser.add_argument("--italic-font", default=None)
     parser.add_argument("--out", default="assets/martel-code-cover.png")
     parser.add_argument("--palette-config", default="config/cover-palettes.json")
     parser.add_argument("--slime-theme", default=None)
@@ -155,8 +158,11 @@ def main() -> None:
     args = parser.parse_args()
 
     font_path = resolve(args.font)
+    italic_font_path = resolve(args.italic_font) if args.italic_font is not None else font_path.with_name("MartelCode-Italic.ttf")
     if not font_path.exists():
         raise FileNotFoundError(f"Missing {font_path}; run `make build` first")
+    if not italic_font_path.exists():
+        raise FileNotFoundError(f"Missing {italic_font_path}; run `make release-fonts` first")
 
     if args.slime_theme is not None or args.tokyo_light_theme is not None:
         if args.slime_theme is None or args.tokyo_light_theme is None:
@@ -185,10 +191,11 @@ def main() -> None:
     draw.rectangle((half_width, 0, width, height), fill=slime["background"])
 
     code_font = font(font_path, 44)
+    comment_font = font(italic_font_path, 44)
     top = 250
     rail_margin = 54
-    draw_code_sample(draw, (rail_margin, top), tokyo, code_font)
-    draw_code_sample(draw, (half_width + rail_margin, top), slime, code_font)
+    draw_code_sample(draw, (rail_margin, top), tokyo, code_font, comment_font)
+    draw_code_sample(draw, (half_width + rail_margin, top), slime, code_font, comment_font)
 
     out = resolve(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)

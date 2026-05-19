@@ -5,6 +5,7 @@ PIP ?= .venv/bin/pip
 CONFIG ?= config/martel-code.json
 PALETTE_CONFIG ?= config/cover-palettes.json
 COVER_FONT ?= fonts/ttf/MartelCode-Regular.ttf
+COVER_ITALIC_FONT ?= fonts/ttf/MartelCode-Italic.ttf
 
 all: fetch build metrics proofs blur-qa kerning-scan
 
@@ -41,7 +42,7 @@ calibrate matrix:
 	$(PY) scripts/calibrate.py --config config/calibration.json
 
 cover:
-	$(PY) scripts/generate_cover.py --font $(COVER_FONT) --out assets/martel-code-cover.png --palette-config $(PALETTE_CONFIG)
+	$(PY) scripts/generate_cover.py --font $(COVER_FONT) --italic-font $(COVER_ITALIC_FONT) --out assets/martel-code-cover.png --palette-config $(PALETTE_CONFIG)
 
 release-fonts: italics
 	$(PY) scripts/export_release_fonts.py --source-dir build/fonts --fonts-dir fonts --dist-dir dist
