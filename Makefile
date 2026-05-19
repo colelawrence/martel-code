@@ -1,4 +1,4 @@
-.PHONY: setup fetch build proofs blur-qa kerning-scan metrics calibrate matrix cover release-fonts clean all
+.PHONY: setup fetch build italics proofs blur-qa kerning-scan metrics variable-audit calibrate matrix cover release-fonts clean all
 
 PY ?= .venv/bin/python
 PIP ?= .venv/bin/pip
@@ -18,6 +18,9 @@ fetch:
 build:
 	$(PY) scripts/transform_font.py --config $(CONFIG)
 
+italics: build
+	$(PY) scripts/generate_italic_fonts.py --source-dir build/fonts --out-dir build/fonts
+
 metrics:
 	$(PY) scripts/qa_metrics.py --config $(CONFIG)
 
@@ -31,13 +34,16 @@ blur-qa: proofs
 kerning-scan:
 	$(PY) scripts/kerning_blur_scan.py --font build/fonts/MartelCode-Regular.ttf --pairs proofs/text/kerning-pairs.txt --out-dir build/reports/kerning
 
+variable-audit: release-fonts
+	$(PY) scripts/audit_variable_compatibility.py --out build/reports/variable-compatibility.json
+
 calibrate matrix:
 	$(PY) scripts/calibrate.py --config config/calibration.json
 
 cover:
 	$(PY) scripts/generate_cover.py --font $(COVER_FONT) --out assets/martel-code-cover.png --palette-config $(PALETTE_CONFIG)
 
-release-fonts: build
+release-fonts: italics
 	$(PY) scripts/export_release_fonts.py --source-dir build/fonts --fonts-dir fonts --dist-dir dist
 
 clean:

@@ -27,34 +27,38 @@ cd martel-code
 make setup
 make fetch
 make build
+make italics
 make metrics
 make proofs
 make blur-qa
 make kerning-scan
 make calibrate
 make release-fonts
+make variable-audit
 make cover
 ```
 
 Installable and web fonts are committed under:
 
 - `fonts/ttf/MartelCode-Regular.ttf`
+- `fonts/ttf/MartelCode-Italic.ttf`
 - `fonts/ttf/MartelCode-DemiBold.ttf`
+- `fonts/ttf/MartelCode-DemiBoldItalic.ttf`
 - `fonts/ttf/MartelCode-Bold.ttf`
-- `fonts/otf/MartelCode-Regular.otf`
-- `fonts/otf/MartelCode-DemiBold.otf`
-- `fonts/otf/MartelCode-Bold.otf`
-- `fonts/woff2/MartelCode-Regular.woff2`
-- `fonts/woff2/MartelCode-DemiBold.woff2`
-- `fonts/woff2/MartelCode-Bold.woff2`
+- `fonts/ttf/MartelCode-BoldItalic.ttf`
+- `fonts/otf/*.otf`
+- `fonts/woff2/*.woff2`
 
-The `.otf` exports are OpenType sfnt fonts with TrueType outlines; the `.woff2` exports are the recommended web files.
+The italic styles are programmatic oblique companions generated with an 11° outline shear. The `.otf` exports are OpenType sfnt fonts with TrueType outlines; the `.woff2` exports are the recommended web files.
 
 Generated build artifacts are ignored by git:
 
 - `build/fonts/MartelCode-Regular.ttf`
+- `build/fonts/MartelCode-Italic.ttf`
 - `build/fonts/MartelCode-DemiBold.ttf`
+- `build/fonts/MartelCode-DemiBoldItalic.ttf`
 - `build/fonts/MartelCode-Bold.ttf`
+- `build/fonts/MartelCode-BoldItalic.ttf`
 - `build/proofs/*.png`
 - `build/reports/*.json`
 - `build/reports/blur-code/*.png`
@@ -111,6 +115,16 @@ The punctuation allowlist is deliberately small so we do not accidentally “nor
 `make cover` renders `assets/martel-code-cover.png` from the committed local palette snapshot at `config/cover-palettes.json` and the committed Regular font at `fonts/ttf/MartelCode-Regular.ttf`.
 
 The cover generator is self-contained by default. It also has explicit `--slime-theme` and `--tokyo-light-theme` CLI overrides for maintainers who want to refresh the local palette snapshot from external VS Code theme files, but the published repo does not depend on those files.
+
+## Italic and variable-font status
+
+`make italics` generates synthetic italic/oblique companions from the upright TTFs:
+
+- `MartelCode-Italic`
+- `MartelCode-DemiBoldItalic`
+- `MartelCode-BoldItalic`
+
+`make variable-audit` checks whether the current static weights are structurally compatible enough for a reliable `wght` variable font. The current static TTFs are **not** compatible enough: the audit finds hundreds of glyph outline operation mismatches across Regular / DemiBold / Bold. A real variable build should use compatible source masters rather than forcing interpolation from these static binaries.
 
 ## Calibration matrix
 
