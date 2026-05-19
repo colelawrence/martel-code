@@ -38,8 +38,7 @@ cover:
 	$(PY) scripts/generate_cover.py --font $(COVER_FONT) --out assets/martel-code-cover.png --palette-config $(PALETTE_CONFIG)
 
 release-fonts: build
-	mkdir -p fonts/ttf
-	cp build/fonts/MartelCode-*.ttf fonts/ttf/
+	$(PY) scripts/export_release_fonts.py --source-dir build/fonts --fonts-dir fonts --dist-dir dist
 
 clean:
 	rm -rf build/fonts build/proofs build/reports
